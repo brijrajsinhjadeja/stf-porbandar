@@ -1,0 +1,79 @@
+:root {
+  --orange: #ff7a00;
+  --blue: #0f4c81;
+  --green: #1fbf75;
+  --dark: #0b1c2d;
+  --light: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  min-height: 100vh;
+}
+
+/* COMMON CONTAINER FOR ALL PAGES */
+.page {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: white;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: var(--green);
+}
+
+p {
+  line-height: 1.7;
+  color: #333;
+}
+
+button {
+  background: linear-gradient(45deg, var(--orange), var(--green));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  margin-bottom: 12px;
+}
