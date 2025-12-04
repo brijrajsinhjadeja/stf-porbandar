@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -42,7 +42,12 @@ export default function App() {
           <Route path="/user/profile" element={<Profile />} />
         </Route>
       </Route>
-
+ <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
       {/* ✅ ADMIN PANEL */}
       <Route path="/admin/*" element={<AdminRoutes />} />
 
@@ -51,3 +56,4 @@ export default function App() {
     </Routes>
   );
 }
+
