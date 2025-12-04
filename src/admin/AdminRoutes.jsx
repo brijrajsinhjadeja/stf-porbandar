@@ -18,7 +18,7 @@ export default function AdminRoutes() {
       <Route path="/" element={<Login />} />
 
       <Route
-        path="/"
+        path="/admin"
         element={
           <ProtectedRoute>
             <AdminLayout />
