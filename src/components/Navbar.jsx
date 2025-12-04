@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 
 export default function Navbar() {
   return (
@@ -12,7 +14,12 @@ export default function Navbar() {
         color: "white",
       }}
     >
-      <h2 style={{ margin: 0, fontWeight: "700" }}>Seva Trust Foundation</h2>
+      <div style={{ display: "flex", alignItems: "center", gap: "35px" }}>
+          <img src={logo} alt="Logo" height="50" />
+          <h2>Seva Trust Foundation</h2>
+      </div>
+
+
 
       <div style={{ display: "flex", gap: 20 }}>
         <Link to="/user/home" style={{ color: "white" }}>Home</Link>

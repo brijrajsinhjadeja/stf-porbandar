@@ -1,3 +1,26 @@
+const grid = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gap: "20px",
+  marginTop: "20px",
+};
+
+const card = {
+  backgroundColor: "#f5f5f5",
+  padding: "20px",
+  borderRadius: "8px",
+  textAlign: "center",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+};
+
+const img = {
+  width: "120px",
+  height: "120px",
+  borderRadius: "50%",
+  objectFit: "cover",
+  marginBottom: "10px",
+};
+
 export default function About() {
   return (
     <>
@@ -38,22 +61,31 @@ export default function About() {
       </div>
 
       {/* TEAM MEMBERS */}
-<div className="section">
-  <h2 className="section-title">Our Members</h2>
-  <p className="section-subtitle">
-    The dedicated people working behind Seva Trust Foundation.
-  </p>
+<section style={{ marginTop: "60px" }}>
+  <h2 style={{ color: "#4caf50", marginBottom: "20px" }}>
+    Our Servants (Volunteers)
+  </h2>
 
-  <div className="team-grid">
-    {JSON.parse(localStorage.getItem("members") || "[]").map((m) => (
-      <div className="member-card" key={m.id}>
-        <img src={m.photo} className="member-photo" />
-        <h4>{m.name}</h4>
-        <p>{m.role}</p>
-      </div>
+  {(() => {
+    const volunteers = JSON.parse(localStorage.getItem("volunteers")) || [];
+
+    if (volunteers.length === 0) {
+      return <p>No volunteers added yet.</p>;
+    }
+
+    return (
+      <div style={grid}>
+        {volunteers.map((v) => (
+          <div key={v.id} style={card}>
+            <img src={v.image} alt={v.name} style={img} />
+            <h3>{v.name}</h3>
+            <p>{v.role}</p>
+          </div>
         ))}
-  </div>
-</div>
+      </div>
+    );
+  })()}
+  </section>
 
 
       {/* EVENTS / FUNCTIONS */}

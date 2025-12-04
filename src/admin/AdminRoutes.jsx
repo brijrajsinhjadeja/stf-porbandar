@@ -8,6 +8,9 @@ import Members from "./Members";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import Donations from "./Donations";
+import Volunteers from "./Volunteers";
+
+
 
 export default function AdminRoutes() {
   return (
@@ -27,6 +30,7 @@ export default function AdminRoutes() {
         <Route path="events" element={<Events />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="donations" element={<Donations />} />
+        <Route path="volunteers" element={<Volunteers />} />
       </Route>
     </Routes>
   );

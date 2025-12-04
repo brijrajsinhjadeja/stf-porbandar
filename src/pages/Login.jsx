@@ -7,14 +7,30 @@ export default function Login() {
   const navigate = useNavigate();
 
   const login = () => {
-    // ✅ DEMO AUTH (YOU CAN CONNECT BACKEND LATER)
-    if (email && password) {
-      localStorage.setItem("userAuth", JSON.stringify({ email }));
-      navigate("/user/home"); // ✅ go to user panel
-    } else {
-      alert("Enter email & password");
-    }
-  };
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const user = users.find(
+    (u) => u.email === email && u.password === password
+  );
+
+  if (!user) {
+    alert("Invalid Email or Password");
+    return;
+  }
+
+  // ✅ SAVE FULL USER OBJECT
+localStorage.setItem("userAuth", "true");
+localStorage.setItem("userData", JSON.stringify(user));
+ const savedUser = JSON.parse(localStorage.getItem("userData"));
+if (!savedUser) {
+  alert("No account found. Please register.");
+  navigate("/register");
+  return;
+}
+
+navigate("/user/home");
+};
+
 
   return (
     <div

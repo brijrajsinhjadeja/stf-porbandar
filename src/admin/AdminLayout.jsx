@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-
+import logo from "../assets/logo.png";
 export default function AdminLayout() {
   const navigate = useNavigate();
 
@@ -26,6 +26,8 @@ export default function AdminLayout() {
           boxShadow: "4px 0 15px rgba(0,0,0,0.25)",
         }}
       >
+      <img src={logo} style={{ width: "80px", marginBottom: "30px", marginLeft: "70px" }} />
+<br></br>
         {/* LOGO / TITLE */}
         <h2
           style={{
@@ -33,17 +35,17 @@ export default function AdminLayout() {
             marginBottom: 40,
             fontWeight: "700",
             letterSpacing: 1,
-          }}
-        >
-          Admin Panel
-        </h2>
+          }} 
+        >          Admin Panel        </h2>
 
         {/* NAV LINKS */}
         <NavItem to="/admin/dashboard" label="📊 Dashboard" />
         <NavItem to="/admin/members" label="👥 Users" />
+        <NavItem to="/admin/volunteers" label="🤝 Volunteers" />
         <NavItem to="/admin/events" label="📅 Events" />
         <NavItem to="/admin/gallery" label="🖼 Gallery" />
         <NavItem to="/admin/donations" label="💰 Donations" />
+
 
         {/* PUSH LOGOUT TO BOTTOM */}
         <div style={{ flex: 1 }} />
